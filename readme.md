@@ -43,8 +43,8 @@ Blackjack.
 
 <font size ="4"><center><u>Optimal Betting</u></font>
 -----
-Optimal betting considers the value of the true count to determine the amount a player should bet. The formula is as 
-follows: bet = initial bet * (1 <span>&#8722;</span> true count).
+Optimal betting considers the value of the true count to determine the amount a player should bet on the next
+hand. The formula is as follows: bet = initial bet * (1 <span>&#8722;</span> true count).
 
 For example, if your initial bet was $100, and the true count is +5, the bettor should wager $400 on the next hand.
 
