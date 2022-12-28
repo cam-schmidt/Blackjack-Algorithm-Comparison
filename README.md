@@ -1,2 +1,2 @@
 # Blackjack-Algorithm-Comparison
-Using a Monte Carlo Simulation to compare the effectiveness of several popular card-counting algorithms.
+Compares the effectiveness of several Blackjack card-counting algorithms using a Monte Carlo Simulation.
