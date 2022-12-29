@@ -87,7 +87,7 @@ least amount of money in the long-run.
 -----
 ![Avg P:L](https://user-images.githubusercontent.com/86618999/209976585-6b942414-4b7d-4276-9bf5-3dddb09f388c.png)
 
-As can be seen by the abovee results, a player without a strategy consistently loses more money than a 
+As can be seen by the results above, a player without a strategy consistently loses more money than a 
 player utilizing any card counting strategy. Thus, card-counting is more effective than playing without a strategy.
    
 To determine the effectiveness of each algorithm, we can utilize a relative performance model - comparing the absolute
