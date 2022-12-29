@@ -1,6 +1,7 @@
 import random
 from copy import deepcopy
 import pandas as pd
+from tabulate import tabulate
 import matplotlib.pyplot as plt
 
 # ----- Configuration Options -----
@@ -332,7 +333,8 @@ df = pd.DataFrame(list(zip(no_strategy_data, high_low_data, zen_count_data,
                   columns=['No Strategy P/L', 'High/Low P/L', 'Zen count P/L',
                            'Omega 2 P/L', 'Hi Opt 1 P/L', 'Hi Opt 2 P/L', 'Wong Halves P/L'])
 
-# Compute the average Profit/Loss of each strategy
+
+# Compute the average Profit/Loss of each algorithm
 no_strategy_average = round(df['No Strategy P/L'].mean(), 2)
 high_low_average = round(df['High/Low P/L'].mean(), 2)
 zen_count_average = round(df['Zen count P/L'].mean(), 2)
@@ -341,18 +343,63 @@ hi_opt_1_average = round(df['Hi Opt 1 P/L'].mean(), 2)
 hi_opt_2_average = round(df['Hi Opt 2 P/L'].mean(), 2)
 wong_halves_average = round(df['Wong Halves P/L'].mean(), 2)
 
-# ----- Graphing Results -----
-x_axis = ['No Strategy', 'High/Low', 'Zen Count', 'Omega 2', 'Hi Opt 1', 'Hi Opt 2', 'Wong Halves']
-y_axis = [abs(no_strategy_average), abs(high_low_average), abs(zen_count_average), abs(omega_2_average),
-          abs(hi_opt_1_average), abs(hi_opt_2_average), abs(wong_halves_average)]
+
+# Calculate relative performance of an algorithm
+def compute_rp(algo_avg):
+    rp = round(((algo_avg/initial_bank) -
+               (no_strategy_average/initial_bank)) * 100, 2)
+    return rp
+
+
+# ----- Plotting the results -----
+x_axis = ['High/Low', 'Zen Count', 'Omega 2', 'Hi Opt 1', 'Hi Opt 2', 'Wong Halves']
+y_axis = [
+        compute_rp(high_low_average),
+        compute_rp(zen_count_average),
+        compute_rp(omega_2_average),
+        compute_rp(hi_opt_1_average),
+        compute_rp(hi_opt_2_average),
+        compute_rp(wong_halves_average)]
 
 plt.bar(x_axis, y_axis)
 plt.title('Blackjack Card Counting Algorithm Comparison')
 plt.xlabel('Algorithm')
-plt.ylabel('Average Player Loss ($)')
+plt.ylabel('Relative Performance (%)')
 
 # Display the value of each bar
 for index, data in enumerate(y_axis):
-    plt.text(x=index-.2, y=data+1, s=f"-${data}", fontdict=dict(fontsize=10))
+    plt.text(x=index-.1, y=data+.1, s=f"{data}%", fontdict=dict(fontsize=10))
+
+
+# Create an average profits/losses dataframe
+rp_data = {'Algorithm': [
+    'No Strategy',
+    'High/Low',
+    'Zen Count',
+    'Omega 2',
+    'Hi Opt 1',
+    'Hi Opt 2',
+    'Wong Halves'],
+    'Average Profit/Loss ($)': [
+        no_strategy_average,
+        high_low_average,
+        zen_count_average,
+        omega_2_average,
+        hi_opt_1_average,
+        hi_opt_2_average,
+        wong_halves_average]
+}
+
+rp_df = pd.DataFrame(rp_data)
+
+# Sort columns by relative performance
+rp_df = rp_df.sort_values('Average Profit/Loss ($)', ascending=False)
+
+# Change index to Ranking
+rp_df = rp_df.reset_index(drop=True)
+rp_df.index.name = 'Ranking'
+rp_df.index += 1
+
+print(tabulate(rp_df, headers='keys', tablefmt='psql'))
 
 plt.show()
