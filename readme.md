@@ -1,6 +1,6 @@
 <h1 align="center">Monte Carlo Simulation for Blackjack Algorithm Comparison</h1>
 
-<h2 align=>Project Description</h2>
+<h2 align='center'>Project Description</h2>
 
 The objective of this project is to compare the effectiveness of several Blackjack card counting algorithms. 
 In order to carry out an equitable comparison, a Monte Carlo simulation is used to assess each algorithm individually, 
