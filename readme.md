@@ -1,4 +1,4 @@
-<font size ="4"><center><u>Introduction</u></font>
+<font size ="4"><center><u>Project Description</u></font>
 -----
 The objective of this project is to compare the effectiveness of several Blackjack card counting algorithms. 
 In order to carry out an equitable comparison, a Monte Carlo simulation is used to assess each algorithm individually, 
