@@ -72,69 +72,71 @@ Wong Halves System
 
 <font size ="4"><center><u>Considerations</u></font>
 -----
-Card counting algorithms see the greatest advantage when the number of decks and shuffle percentage is low. 
+Card counting algorithms see the greatest advantage when both the number of decks and shuffle percentage are low. 
 Thus, players utilizing each algorithm will see higher profits and less substantial losses if the simulation is run 
 with fewer decks and a lower shuffle percentage.
 
-It is important to consider that even card counting algorithms are introduced, Blackjack always has a house 
-edge. A primary contributor to the house edge is that only the player will lose if both the player and dealer scores 
-exceed 21 (instead of a tie). Due to the house edge, if enough games are played the house will always win. As such, 
-the most ideal card counting algorithm is the one in which the player loses the least amount of money.
+It is important to consider that even when card counting algorithms are introduced, Blackjack always has a house 
+edge. A primary contributor to the house edge is the rule that the player will lose if both the player and dealer scores 
+exceed 21 (instead of a tie). Due to the house edge, if enough games are played the players will always lose money, and
+the house will always win money. As such, the most ideal card counting algorithm is the one in which the player loses the 
+least amount of money in the long-run.
 
 
 <font size ="4"><center><u>Results</u></font>
 -----
-Due to the stochastic nature of Blackjack, running the Monte Carlo Simulation repeatedly will produce different results 
-each time. However, while repeatedly running the simulation produced different average profits and losses for each 
-card-counting algorithm, the ranking of each algorithm was fairly consistent, as seen below:
+To determine the effectiveness of each algorithm, we utilize a relative performance model - comparing the absolute
+returns of each algorithm to the absolute returns realized without a strategy (acting as a benchmark). 
+ 
+![Avg P:L](https://user-images.githubusercontent.com/86618999/209976585-6b942414-4b7d-4276-9bf5-3dddb09f388c.png)
 
-![Ranking 1](https://user-images.githubusercontent.com/86618999/209853590-e0320f7d-40f4-41c0-96f3-e3520fb0c642.png)
-![Ranking 2](https://user-images.githubusercontent.com/86618999/209853670-71b76b7f-4f7b-4300-8a23-81256158efdb.png)
-![Ranking 3](https://user-images.githubusercontent.com/86618999/209853629-a3997e59-c590-47a0-b8cd-cf496b089a2c.png)
-
-
-As can be seen by the results of 3 simulations, a player without a strategy consistently loses more money than any 
+As can be seen by the above results, a player without a strategy consistently loses more money than a 
 player utilizing any card counting strategy. Thus, card-counting is more effective than playing without a strategy.
+   
+Due to the stochastic nature of Blackjack, running the Monte Carlo Simulation repeatedly will produce different results 
+each time. However, while the simulations produced different average profits and losses for each 
+card counting algorithm, the rankings of the algorithms were fairly consistent, as seen below:
+   
+![1](https://user-images.githubusercontent.com/86618999/209976701-04063dbe-24d4-41db-8feb-98177f086670.png)
+![2](https://user-images.githubusercontent.com/86618999/209976710-05c4f219-1e6a-45f6-ac03-da9b765ebe1a.png)
+![3](https://user-images.githubusercontent.com/86618999/209976729-2aece5ca-46b1-4da4-80ec-43ba6c247770.png)
 
-To determine the effectiveness of each algorithm, we can calculate the percentage difference between the average loss
-utilizing each algorithm and the average loss playing without an algorithm. This will effectively determine how
-much more money a player will save (or how much less they will lose) playing with each choice of algorithm.
 
-Based on the results of several simulations, the effectiveness of each algorithm is ranked as follows:
+Based on the results of 3 Monte Carlo simulations, the average relative performance of each algorithm is ranked as follows:
 <table>
     <tr>
         <th>Ranking</th>
         <th>Algorithm</th>
-        <th>Savings</th>
+        <th>Relative Performance</th>
     </tr>
     <tr>
         <th>1</th>
         <th>Zen Count</th>
-        <th>20.46%</th>
+        <th>15.99%</th>
     </tr>
     <tr>
         <th>2</th>
         <th>Omega 2</th>
-        <th>20.33%</th>
+        <th>15.09%</th>
     </tr>
     <tr>
         <th>3</th>
         <th>Hi Opt 2</th>
-        <th>18.27%</th>
+        <th>14.14%</th>
     </tr>
     <tr>
         <th>4</th>
         <th>Wong Halves</th>
-        <th>7.72%</th>
+        <th>5.53%</th>
     </tr>
     <tr>
         <th>5</th>
         <th>High/Low</th>
-        <th>7.72%</th>
+        <th>5.52%</th>
     </tr>
     <tr>
         <th>6</th>
         <th>Hi Opt 1</th>
-        <th>5.22%</th>
+        <th>4.15%</th>
     </tr>
 </table>
