@@ -85,6 +85,7 @@ least amount of money in the long-run.
 
 <font size ="4"><center><u>Results</u></font>
 -----
+
 ![Avg P:L](https://user-images.githubusercontent.com/86618999/209976585-6b942414-4b7d-4276-9bf5-3dddb09f388c.png)
 
 As can be seen by the results above, a player without a strategy consistently loses more money than a 
