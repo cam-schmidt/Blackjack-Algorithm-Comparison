@@ -87,7 +87,9 @@ least amount of money in the long-run.
 
 <h2 align='center'>Results</h2>
 
-![Avg P:L](https://user-images.githubusercontent.com/86618999/209976585-6b942414-4b7d-4276-9bf5-3dddb09f388c.png)
+<div align="center">
+   <img src="https://user-images.githubusercontent.com/86618999/209976585-6b942414-4b7d-4276-9bf5-3dddb09f388c.png">
+</div>
 
 As can be seen by the results above, a player without a strategy consistently loses more money than a 
 player utilizing any card counting strategy. Thus, card-counting is more effective than playing without a strategy.
@@ -105,7 +107,7 @@ card counting algorithm, the rankings of the algorithms were fairly consistent, 
 
 
 Based on the results of 3 Monte Carlo simulations, the average relative performance of each algorithm is ranked as follows:
-<table>
+<table align='center'>
     <tr>
         <th>Ranking</th>
         <th>Algorithm</th>
